@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid red; */
+}
+
+html {
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    display: flex;
+    align-items: stretch;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sideImage {
+    background-image: url(images/pexels-anna-shvets-5029919.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 60%;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+.encourage{
+    max-width: 610px;
+    font-size: large;
+}
+.encourage, .logIn{
+    margin: 10px 5% 20px 5%;
+    font-weight: 500;
+}
+form {
+    background-color: white;
+    box-shadow: 0px 2px 2px;
+    padding: 10px 0;
+}
+.formHeading {
+    margin: 10px 0 10px 5%;
+    font-size: large;
+    font-weight: 500;
+}
+.section {
+    display: flex;
+    flex-wrap: wrap;
+}
+.couple {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 5% 20px 5%;
+}
+label,input {
+    display: block;
+}
+label {
+    font-size: 15px;
+}
+.required {
+    color: red;
+}
+input {
+    border: 1px solid #E5E7EB;border-radius: 2px;
+    padding: 2px;
+    font-size: 15px;
+}
+input:focus {
+    outline: 1px solid blue;
+    box-shadow: 2px 2px 2px;
+}
+input.validation:invalid{
+    outline: 1px solid red;
+}
+input.invalid{
+    outline: 1px solid red;
+}
+button {
+    margin: 25px 5% 10px 5%;
+    width: fit-content;
+    padding: 1% 5%;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 700;
+    background-color: #03d368;
+}
+.logIn {
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+    color: #07743d;
+    font-size: 25px;
+}
+button:hover {
+    cursor: pointer;
+}

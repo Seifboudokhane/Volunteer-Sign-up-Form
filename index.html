@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteering Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sideImage">
+    </div>
+    <div class="main">
+        <p class="encourage">This is not a real service! Join our volunteering club and make a meaningful impact in your community. Connect with like-minded individuals, share your passion, and create positive change. Together, we can make a difference, one act of kindness at a time.<br><br>Sign up now!</p>
+        <form id="form" action="">
+            <p class="formHeading">Let's do this</p>
+            <div class="section">
+                <p class="couple">
+                    <label for="firstName">FIRST NAME<span class="required">*</span></label>
+                    <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]{0,30}" required>
+                </p>
+                <p class="couple">
+                    <label for="lastName">LAST NAME<span class="required">*</span></label>
+                    <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]{0,30}" required>
+                </p>
+            </div>
+            <div class="section">
+                <p class="couple">
+                    <label for="email">EMAIL</label>
+                    <input type="email" name="email" id="email">
+                </p>
+                <p class="couple">
+                    <label for="phone">PHONE NUMBER</label>
+                    <input type="tel" name="phone" id="phone">
+                </p>
+            </div>
+            <div class="section">
+                <p class="couple">
+                    <label for="password">PASSWORD<span class="required">*</span></label>
+                    <input type="password" name="password" id="password" required>
+                </p>
+                <p class="couple">
+                    <label for="confirmPassword">CONFIRM PASSWORD<span class="required">*</span></label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required>
+                </p>
+            </div>
+        </form>
+        <button type="submit" form="form" id="submit">Create Account</button>
+        <p class="logIn">Already have an account?<br><a id="logIn" href="#">Log in</a></p>
+    </div>
+    <script>
+        const first = document.getElementById("firstName");
+        const last = document.getElementById("lastName");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const submit = document.getElementById("submit")
+        first.addEventListener("input",()=>first.classList.add("validation"))
+        last.addEventListener("input",()=>first.classList.add("validation"))
+        let passwordContent;
+        password.addEventListener("change",function(){
+            passwordContent=password.value;
+        })
+        confirmPassword.addEventListener("change",function(){
+            if(confirmPassword.value!=passwordContent){
+                password.classList.add("invalid");
+                password.setCustomValidity("Invalid field.");
+                confirmPassword.classList.add("invalid");
+                confirmPassword.setCustomValidity("Invalid field.");
+            }
+            else{
+                password.classList.remove("invalid");
+                password.setCustomValidity("");
+                confirmPassword.classList.remove("invalid");
+                confirmPassword.setCustomValidity("");
+                
+            }
+        })
+    </script>
+</body>
+</html>
