@@ -40,6 +40,7 @@
                 <p class="couple">
                     <label for="password">PASSWORD<span class="required">*</span></label>
                     <input type="password" name="password" id="password" minlength="8" required>
+                    <span id="message" style="display: none;">*password do not match</span>
                 </p>
                 <p class="couple">
                     <label for="confirmPassword">CONFIRM PASSWORD<span class="required">*</span></label>
@@ -55,6 +56,7 @@
         const last = document.getElementById("lastName");
         const email = document.getElementById("email");
         const phone = document.getElementById("phone");
+        const message = document.getElementById("message");
         const password = document.getElementById("password");
         const confirmPassword = document.getElementById("confirmPassword");
         const submit = document.getElementById("submit")
@@ -69,12 +71,14 @@
                 password.setCustomValidity("Invalid field.");
                 confirmPassword.classList.add("invalid");
                 confirmPassword.setCustomValidity("Invalid field.");
+                message.style.display="inline";
             }
             else{
                 password.classList.remove("invalid");
                 password.setCustomValidity("");
                 confirmPassword.classList.remove("invalid");
                 confirmPassword.setCustomValidity("");
+                message.style.display="none";
             }
         })
         confirmPassword.addEventListener("input",function(){
@@ -83,12 +87,14 @@
                 password.setCustomValidity("Invalid field.");
                 confirmPassword.classList.add("invalid");
                 confirmPassword.setCustomValidity("Invalid field.");
+                message.style.display="inline";
             }
             else{
                 password.classList.remove("invalid");
                 password.setCustomValidity("");
                 confirmPassword.classList.remove("invalid");
                 confirmPassword.setCustomValidity("");
+                message.style.display="none";
             }
         })
     </script>
