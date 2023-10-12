@@ -39,11 +39,11 @@
             <div class="section">
                 <p class="couple">
                     <label for="password">PASSWORD<span class="required">*</span></label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" minlength="8" required>
                 </p>
                 <p class="couple">
                     <label for="confirmPassword">CONFIRM PASSWORD<span class="required">*</span></label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" required>
+                    <input type="password" name="confirmPassword" id="confirmPassword" minlength="8" required>
                 </p>
             </div>
         </form>
@@ -60,12 +60,11 @@
         const submit = document.getElementById("submit")
         first.addEventListener("input",()=>first.classList.add("validation"))
         last.addEventListener("input",()=>last.classList.add("validation"))
-        let passwordContent;
-        password.addEventListener("change",function(){
-            passwordContent=password.value;
-        })
-        confirmPassword.addEventListener("change",function(){
-            if(confirmPassword.value!=passwordContent){
+        password.addEventListener("input",()=>password.classList.add("validation"))
+        confirmPassword.addEventListener("input",()=>confirmPassword.classList.add("validation"))
+        
+        password.addEventListener("input",function(){
+            if(confirmPassword.value!=password.value){
                 password.classList.add("invalid");
                 password.setCustomValidity("Invalid field.");
                 confirmPassword.classList.add("invalid");
@@ -76,7 +75,20 @@
                 password.setCustomValidity("");
                 confirmPassword.classList.remove("invalid");
                 confirmPassword.setCustomValidity("");
-                
+            }
+        })
+        confirmPassword.addEventListener("input",function(){
+            if(confirmPassword.value!=password.value){
+                password.classList.add("invalid");
+                password.setCustomValidity("Invalid field.");
+                confirmPassword.classList.add("invalid");
+                confirmPassword.setCustomValidity("Invalid field.");
+            }
+            else{
+                password.classList.remove("invalid");
+                password.setCustomValidity("");
+                confirmPassword.classList.remove("invalid");
+                confirmPassword.setCustomValidity("");
             }
         })
     </script>
